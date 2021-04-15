@@ -1,0 +1,30 @@
+{
+  "name": "backdrop-challenge",
+  "version": "1.0.0",
+  "description": "enable to shorten url",
+  "main": "index.js",
+  "author": "ofurum chiagoziem",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "mocha test/**/*.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.22.2",
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "express-winston": "^4.1.0",
+    "graphql": "^15.5.0",
+    "graphql-compose": "^7.25.1",
+    "graphql-compose-mongoose": "^9.2.2",
+    "mocha": "^8.3.2",
+    "mongoose": "^5.12.3",
+    "nanoid": "^3.1.22",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3",
+    "valid-url": "^1.0.9",
+    "winston": "^3.3.3",
+    "winston-mongodb": "^5.0.7"
+  }
+}
