@@ -2,6 +2,7 @@ const chai = require("chai");
 const expect = chai.expect;
 const urlLink = `http://localhost:8000`;
 const request = require("supertest")(urlLink);
+const values = [1234, true];
 // const urlSchemaType = query.getType()
 describe("url that is not vaild", () => { 
     it('Invalid short Url', (done) => {
@@ -55,13 +56,27 @@ describe("url that is not vaild", () => {
         if(error) return done(error)
         expect(res.body).to.be.an('object')
         expect(res.body.data.shortenUrl).to.deep.own.include(res.body.data.shortenUrl)
-
         done()
       })
     })
 
-    it('Should have a top-level domain', (done) => {
-      
+    it('Should not be an interger', (done) => {
+       const value = values[Math.round(Math.random())];
+          request
+          .post('/graphql')
+          .send({
+            query: `{ shortenUrl(url: ${value} ){url}}`
+          })
+          .set("Accept", "application/json")
+          .expect(400)
+          .end((error, res) => {
+          if(error) return done(error)
+             expect(res.body.data).to.be.an('undefined')
+             expect(res.body.errors[0].message).to.include(
+              `String cannot represent a non string value: ${value}`
+            );
+            done();
+          })
     })
 
 });

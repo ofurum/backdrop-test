@@ -44,21 +44,6 @@ const RootQuery = new GraphQLObjectType({
             }catch(error){
                         return error
             }
-              // const originalUrl = args.url;
-              // const baseUrl = "http://localhost:8080";
-              // console.log(!validUrl.isWebUri(originalUrl));
-
-              // if (!validUrl.isWebUri(baseUrl)) {
-              //   throw new Error("this url is not compatible");
-              // }
-              // if (!validUrl.isWebUri(originalUrl)) {
-              //   throw new Error(
-              //     "Invalid URL. Please enter a valid url for shortening"
-              //   );
-              // }
-              // const urlLimit = nanoid(6);
-              // const shortenUrl = `${baseUrl}/${urlLimit}`;
-              // return { url: shortenUrl }
       },
     },
   },
