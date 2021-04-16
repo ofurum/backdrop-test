@@ -42,6 +42,7 @@ describe("url that is not vaild", () => {
              done();
             })
     })
+
     it('Should have a valid url', (done) => {
       request
       .post('/graphql')
@@ -49,7 +50,17 @@ describe("url that is not vaild", () => {
          query: '{ shortenUrl(url: "https://buyCoins.com"){url}}'
       })
       .set("Accept", "application/json")
-      .expect(200);
+      .expect(200)
+      .end((error, res) => {
+        if(error) return done(error)
+        expect(res.body).to.be.an('object')
+        expect(res.body.data.shortenUrl).to.deep.own.include(res.body.data.shortenUrl)
+
+        done()
+      })
+    })
+
+    it('Should have a top-level domain', (done) => {
       
     })
 
