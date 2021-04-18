@@ -4,4 +4,4 @@ orbs:
 workflows:
   heroku_deploy:
     jobs:
-      - heroku
+      - heroku_deploy
