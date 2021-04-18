@@ -1,5 +1,6 @@
 const { nanoid } = require("nanoid");
-const validUrl = require('valid-url')
+const validUrl = require('valid-url');
+const { UrlSchema, UrlSchemaTc } = require("../model/url");
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -27,7 +28,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parentValue, args) {
             try{
                  const originalUrl = args.url;
-                 const baseUrl = "http://localhost:8080";
+                 const baseUrl = "https://backdrop-challenge1.herokuapp.com/";
                  console.log(originalUrl);
 
                  if (!validUrl.isWebUri(baseUrl)) {
@@ -39,7 +40,7 @@ const RootQuery = new GraphQLObjectType({
                    );
                  }
                  const urlLimit = nanoid(6);
-                 const shortenUrl = `${baseUrl}/${urlLimit}`;
+                 const shortenUrl = `${baseUrl}/${urlLimit}`
                  return { url: shortenUrl };
             }catch(error){
                         return error

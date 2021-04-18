@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 const { composeWithMongoose } = require("graphql-compose-mongoose");
 const Schema = mongoose.Schema;
 
-const urlSchema = new Schema(
-  {
-    shortURL: {
-      _id: mongoose.Schema.Types.ObjectId,
+const urlSchema = new Schema( {
+    shortenUrl: {
+      _id: Schema.Types.ObjectId,
       type: String,
       required: true,
     },
-    originalURL: {
+    originalUrL: {
       type: String,
       required: true,
     },
